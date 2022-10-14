@@ -10,7 +10,7 @@ def calculator():
                             /---+++***Calculator***+++---/
 
 
-             .----------------.   .----------------.   .----------------.   .----------------.   .----------------. 
+             .----------------.   .----------------.   .----------------.   .----------------.   .----------------.
             | .--------------. | | .--------------. | | .--------------. | | .--------------. | | .--------------. |
             | |      _       | | | |              | | | |      _       | | | |        __    | | | |     ___      | |
             | |     | |      | | | |              | | | |   /\| |/\    | | | |       / /    | | | |    / _ \     | |
@@ -20,7 +20,7 @@ def calculator():
             | |     |_|      | | | |              | | | |   \/|_|\/    | | | |   /_/        | | | |              | |
             | |              | | | |              | | | |              | | | |              | | | |              | |
             | '--------------' | | '--------------' | | '--------------' | | '--------------' | | '--------------' |
-             '----------------'   '----------------'   '----------------'   '----------------'   '----------------' 
+             '----------------'   '----------------'   '----------------'   '----------------'   '----------------'
 
                     ''')
         while True:
@@ -33,33 +33,42 @@ def calculator():
                 print('....')
                 time.sleep(0.5)
                 print('Complete')
-                quit()
-            b = float(input('Enter second number: '))
-            choice = int(input('''Enter a choice:
-                        1. add
-                        2. subtract
-                        3. multiply
-                        4. divide
-                        5. power\n '''))
-            operators = {1: 'add', 2: 'subtract',
-                         3: 'multiply', 4: 'divide', 5: 'power'}
-            if choice not in operators.keys():
+                sys.exit(0)
+            choice = input(
+                'Choose one:\n (a) +  (b) -  (c) *  (d) /  (e) ^ : ').lower()
+            if choice == 'a':
+                print('\033[1A' + '+' + '\033[K')
+            elif choice == 'b':
+                print('\033[1A' + '-' + '\033[K')
+            elif choice == 'c':
+                print('\033[1A' + '*' + '\033[K')
+            elif choice == 'd':
+                print('\033[1A' + '/' + '\033[K')
+            elif choice == 'e':
+                print('\033[1A' + '^' + '\033[K')
+            else:
+                pass
+            operators = ['a', 'b', 'c', 'd', 'e']
+            if choice not in operators:
                 print("Error")
                 sys.exit(1)
+
+            b = float(input('Enter second number: '))
             print('\n')
-            if choice == 1:
+
+            if choice == 'a':
                 print(f'Result: {a} + {b} = {a + b} \n')
-            if choice == 2:
+            if choice == 'b':
                 print(f'Result: {a} - {b} = {a - b} \n')
 
-            if choice == 3:
+            if choice == 'c':
                 print(f'Result: {a} * {b} = {a * b} \n')
-            if choice == 4:
+            if choice == 'd':
                 try:
                     print(f'Result: {a} / {b} = {a / b} \n')
                 except ZeroDivisionError:
                     print("Infinity ")
-            if choice == 5:
+            if choice == 'e':
                 print(f'Result: {a} ^ {b} = {pow(a, b)}')
             print('Enter any alphabet to exit \n')
     except Exception as e:
