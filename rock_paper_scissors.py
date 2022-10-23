@@ -5,24 +5,24 @@ def rock_paper_scissors():
     your_score = 0
     computer_score = 0
     Win = [
-        ["rock", "scissors"],
-        ["paper", "rock"],
-        ["scissors", "paper"]]
+        ["rock(✊)", "scissors(scissors(✌️))"],
+        ["paper(✋)", "rock(✊)"],
+        ["scissors(scissors(✌️))", "paper(✋)"]]
     while True:
-        computer_choice = random.choice(["rock", "paper", "scissors"])
+        computer_choice = random.choice(["rock(✊)", "paper(✋)", "scissors(scissors(✌️))"])
         user_choice = input('''Enter one of the choice:
-        (r)rock
-        (p)paper
-        (s)scissors:\t''').lower()
+        (r)rock(✊)
+        (p)paper(✋)
+        (s)scissors(scissors(✌️)): \t''').lower()
         if user_choice.strip() == '':
             print("Thanks for playing......")
             quit()
         elif user_choice == 'r':
-            user_choice = 'rock'
+            user_choice = "rock(✊)"
         elif user_choice == 'p':
-            user_choice = 'paper'
+            user_choice = "paper(✋)"
         elif user_choice == 's':
-            user_choice = 'scissors'
+            user_choice = "scissors(scissors(✌️))"
         else:
             print("Invalid option")
             quit()
