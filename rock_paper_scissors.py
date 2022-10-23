@@ -44,3 +44,5 @@ def rock_paper_scissors():
 
 
 rock_paper_scissors()
+
+#emoji credits: https://emojiclipboard.com/
