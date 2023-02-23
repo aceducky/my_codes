@@ -1,11 +1,13 @@
 import sys
 import os
 import time
+import platform
+
 
 
 def calculator():
     try:
-        os.system('cmd /c "color a" ')
+      if sys.platform == "win32" or platform.system() == "Windows": os.system('cmd /c "color a" ')
         print('''
                             /---+++***Calculator***+++---/
             .----------------.   .----------------.   .----------------.   .----------------.   .----------------.
