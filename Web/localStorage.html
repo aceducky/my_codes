@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>localStorage</title>
+
+  <style>
+    body {
+      background: conic-gradient(white 0deg, gray 180deg, black 180deg);
+      color: white;
+      margin: 0;
+    }
+    *{
+      font-family: 'Lucida Calligraphy',Georgia, 'Times New Roman', Times, serif ;
+    }
+    div {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #count-el {
+      color: yellow;
+      font-size: 5em;
+      font-weight: bold;
+    }
+
+    #black {
+      color: black;
+    }
+
+    button {
+      background-color: #7A798F;
+      border: 0.5px offset;
+      width: 10em;
+      height: 2.5em;
+      font-size: 1.3em;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div>
+
+    <p>You visited this page <span id="count-el"></span> <span id="black"> time<span id="bruh"></span>.</span></p>
+    <button onclick="clearCount()">Clear Count</button>
+  </div>
+  <script>
+    let count_el = document.getElementById('count-el');
+
+    let count = localStorage.getItem("localCount");
+
+
+    if (!(count)) {
+      count = 0;
+    }
+
+    count = parseInt(count) + 1;
+
+    if (count != 1) {
+      bruh.textContent = "s";
+    }
+
+    localStorage.setItem("localCount", count);
+
+    count_el.textContent = count;
+
+    clearCount = () => {
+      localStorage.clear();
+      count = 0;
+      bruh.textContent = 's';
+      count_el.textContent = count;
+    }
+  </script>
+</body>
+
+</html>
