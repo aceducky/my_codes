@@ -151,11 +151,12 @@
   var userChoice;
   var winner;
   
-  if (localStorage.getItem('userScore') != 0 || localStorage.getItem('pcScore') != 0)
+  if (localStorage.getItem('userScore') != 0 || localStorage.getItem('pcScore') != 0){
     userScore = localStorage.getItem('userScore');
   pcScore = localStorage.getItem('pcScore');
   document.getElementById('us').textContent = userScore;
   document.getElementById('ps').textContent = pcScore;
+  }
   function rps(ph) {
     
     if (ph == 1) {
