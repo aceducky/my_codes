@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="main">
+      <div id="input-wrap">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="Enter a To-do"
+          autofocus
+        />
+        <button id="add-btn">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+      <div id="tasks-counter">
+        Tasks left: <span id="tasks-progress"></span>
+      </div>
+    </div>
+    <ul id="tasks-list-header"></ul>
+    <script>
+      const input = document.querySelector("#task-input");
+      const addBtn = document.querySelector("#add-btn");
+      const taskListHeader = document.querySelector("#tasks-list-header");
+      let tasksList = {};
+      let completedTasks = 0;
+      let incompleteTasks = 0;
+
+      input.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          handleAddTask();
+        }
+      });
+      function handleAddTask() {
+        let task = input.value.trim();
+        if (!task) {
+          alert("Enter a task");
+          return;
+        }
+        const task_el = document.createElement("li");
+
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        let task_label = document.createElement("label");
+        task_label.htmlFor = checkbox.id;
+        task_label.appendChild(checkbox);
+        task_label.appendChild(document.createTextNode(task));
+
+        let removeBtn = document.createElement("button");
+        removeBtn.setAttribute("id", "remove-btn");
+        removeBtn.innerHTML = "<i class='fas fa-trash'></i>";
+        task_el.appendChild(task_label);
+        task_el.appendChild(removeBtn);
+        taskListHeader.append(task_el);
+        tasksList[task] = false;
+        console.log(task);
+        input.value = "";
+      }
+      addBtn.addEventListener("click", handleAddTask);
+    </script>
+  </body>
+</html>
