@@ -7,8 +7,8 @@ import platform
 
 def calculator():
     try:
-      if sys.platform == "win32" or platform.system() == "Windows": os.system('cmd /c "color a" ')
-        print('''
+        if sys.platform == "win32" or platform.system() == "Windows": os.system('cmd /c "color a" ')
+        print(r'''
                             /---+++***Calculator***+++---/
             .----------------.   .----------------.   .----------------.   .----------------.   .----------------.
             | .--------------. | | .--------------. | | .--------------. | | .--------------. | | .--------------. |
